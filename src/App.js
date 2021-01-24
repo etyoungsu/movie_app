@@ -1,6 +1,10 @@
 import React from "react";
 
 class App extends React.Component{  // function 아니므로 return X
+  constructor(props) {
+    super(props);
+    console.log("Hello");
+  }
   state = {    // state -> object , component의 data 넣을 공간 있고 이 데이터가 변함
     count: 0    // 바꿀 데이터를 넣음
   };
@@ -10,8 +14,17 @@ class App extends React.Component{  // function 아니므로 return X
   minus = () => {   // javascript 코드임
     this.setState( current => ({count: current.count - 1}));   // setState 호출 시 state를 refresh 그리고 render function 호출 
   };  //  function way / state을 set 할 때 react에서 외부 상태에 의존하지 않는 가장 좋은 방법
-
+  componentDidMount() {
+    console.log("component rendered");
+  }
+  componentDidUpdate() {
+    console.log("I just updated");
+  }
+  componentWillUnmount() {    // 아쉽게도 확인 못함! 동작은 한다!
+    console.log("Good-Bye, cruel world!");
+  }
   render() {   // react component의 render method 사용
+    console.log("I'm rendering");
     return (
       <div>
         <h1>the number is : {this.state.count}</h1>
