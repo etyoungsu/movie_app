@@ -1,45 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const foodILike = [
-  {
-    id:1,
-    name : "Kimchi",
-    image : "https://cdn.pixabay.com/photo/2019/03/09/15/12/kimchi-4044268_960_720.jpg",
-    rating : 4.5
-  },
-  {
-    id:2,
-    name : "ramen",
-    image : "https://cdn.pixabay.com/photo/2019/12/01/15/08/if-the-4665686_960_720.jpg",
-    rating : 5.5
+class App extends React.Component{  // function 아니므로 return X
+  state = {    // state -> object , component의 data 넣을 공간 있고 이 데이터가 변함
+    count: 0    // 바꿀 데이터를 넣음
+  };
+  add = () => {   // javascript 코드임
+    console.log("add");
+  };
+  minus = () => {   // javascript 코드임
+    console.log("minus");
+  };
+
+  render() {   // react component의 render method 사용
+    return (
+      <div>
+        <h1>the number is : {this.state.count}</h1>
+        <button onClick={this.add}>Add </button>
+        <button onClick={this.minus}>Minus</button>
+      </div>  // onClick -> react magic , not add() -> function
+      );
   }
-]
-
-function Food({fav,picture,rate}) {
-  return(
-  <div> 
-    <h1>I like {fav}</h1>
-    <img src={picture} alt={fav}/>
-    <h4>{rate}/5.0</h4>
-  </div>
-    );
 }
-
-Food.propTypes = {
-  fav: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
-  rate: PropTypes.number.isRequired
-};
-
-function App() {
-  return (
-    <div className="App">
-      {foodILike.map(dish => (
-      <Food key={dish.id} fav={dish.name} picture={dish.image} rate = {dish.rating}/>
-      ))}
-    </div>
-  );
-}
+// 왜 사용? class component가 가진 state 때문에!!
 
 export default App;
