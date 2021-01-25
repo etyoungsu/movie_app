@@ -1,39 +1,20 @@
 import React from "react";
 
-class App extends React.Component{  // function 아니므로 return X
-  constructor(props) {
-    super(props);
-    console.log("Hello");
-  }
-  state = {    // state -> object , component의 data 넣을 공간 있고 이 데이터가 변함
-    count: 0    // 바꿀 데이터를 넣음
+class App extends React.Component{
+  state = {
+    isLoading: true,
+    movies: []    // 미래에 쓸 state을 선언하는 것 필수 X , setState 사용할 때 state 안에 default 값 선언할 필요 없다.
   };
-  add = () => {   // javascript 코드임
-    this.setState({ count : this.state.count + 1});   // this.state.count = 1 하면 오류 -> state 직접 변경마라고 함 / react가 refresh하는 것을 원하므로..
-  };  // setState은 새로운 state 받음
-  minus = () => {   // javascript 코드임
-    this.setState( current => ({count: current.count - 1}));   // setState 호출 시 state를 refresh 그리고 render function 호출 
-  };  //  function way / state을 set 할 때 react에서 외부 상태에 의존하지 않는 가장 좋은 방법
-  componentDidMount() {
-    console.log("component rendered");
+  componentDidMount() { // render 뒤에 시행
+    setTimeout(() => {  // setTimeout -> javascript의 것
+      this.setState({ isLoading: false});
+    }, 6000);
   }
-  componentDidUpdate() {
-    console.log("I just updated");
-  }
-  componentWillUnmount() {    // 아쉽게도 확인 못함! 동작은 한다!
-    console.log("Good-Bye, cruel world!");
-  }
-  render() {   // react component의 render method 사용
-    console.log("I'm rendering");
-    return (
-      <div>
-        <h1>the number is : {this.state.count}</h1>
-        <button onClick={this.add}>Add </button>
-        <button onClick={this.minus}>Minus</button>
-      </div>  // onClick -> react magic , not add() -> function
-      );
+
+  render() {
+    const { isLoading } = this.state;
+    return <div>{isLoading ? "Loading.." : "We are ready"}</div>; // 위 문장 없이는 this.state.isLoading 사용
   }
 }
-// 왜 사용? class component가 가진 state 때문에!!
 
 export default App;
