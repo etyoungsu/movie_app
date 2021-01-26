@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Movie from "./Movie";
+import "./App.css"; // 함수 import X
 
 class App extends React.Component{
   state = {
@@ -20,17 +21,23 @@ class App extends React.Component{
 
   render() {
     const { isLoading, movies } = this.state;
-    return <div>{isLoading ? "Loading.." : movies.map(movie => {
-            //console.log(movie); object 보임
-      return <Movie 
-      key={movie.id}  // 없으면 키 있어야한다고 경고 나옴
-      id={movie.id}
-      year={movie.year}
-      title={movie.title}
-      summary={movie.summary}
-      poster={movie.medium_cover_image}
-      />   // return 해줘야함 + Prop 넣어줌
-    })}</div>; // 위 문장 없이는 this.state.isLoading 사용
+    return ( 
+      <section class="container">
+          {isLoading 
+            ? <div class="loader">
+              <span class="loader__text">"Loading.."</span>
+            </div>
+            : movies.map(movie => (
+                <Movie 
+                  key={movie.id}
+                  id={movie.id}
+                  year={movie.year}
+                  title={movie.title}
+                  summary={movie.summary}
+                  poster={movie.medium_cover_image}
+                  />
+              ))}
+            </section>)
   }
 }
 
