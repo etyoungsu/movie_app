@@ -24,21 +24,26 @@ class App extends React.Component {
     return (
       <section className="container">
         {isLoading
-          ? <div className="loader">
+          ? (<div className="loader">
             <span className="loader__text">"Loading.."</span>
           </div>
-          : movies.map(movie => (
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              year={movie.year}
-              title={movie.title}
-              summary={movie.summary}
-              poster={movie.medium_cover_image}
-              genres={movie.genres}     // 이거 안넣으면 오류 발생 (console에서 확인)
-            />
-          ))}
-      </section>)
+          ) : (
+            <div className="movies">
+              {movies.map(movie => (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  year={movie.year}
+                  title={movie.title}
+                  summary={movie.summary}
+                  poster={movie.medium_cover_image}
+                  genres={movie.genres}     // 이거 안넣으면 오류 발생 (console에서 확인)
+                />
+              ))}
+            </div>
+          )}
+      </section>
+    );
   }
 }
 
