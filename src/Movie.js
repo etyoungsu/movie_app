@@ -14,7 +14,7 @@ function Movie({ year, title, summary, poster, genres }) {    // id 필요없음
                         <li key={index} className="genres__genre">{genre}</li>
                     ))}
                 </ul>
-                <p className="movie__summary">{summary}</p>
+                <p className="movie__summary">{summary.slice(0, 180)}</p>
             </div>
         </div>
     );  //  alt, title for blind, div에서 style={{}}시 안에서 css
