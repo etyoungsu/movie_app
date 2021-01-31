@@ -1,0 +1,9 @@
+.Detail {
+    margin: 30px;    
+}
+
+.Detail span:first-child {
+    font-size: 300px;
+}
+
+/* 이유는 모르겠지만 css 적용이 안된다 */
