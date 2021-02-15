@@ -24,3 +24,16 @@ react course of Nomadcode
 **Done!**
 
 [URL](https://etyoungsu.github.io/movie_app/)
+
+
+### Hard Grammer
+
+
+* .forEach()
+* .filter()
+ * compare to **.map()**
+* event.target
+* .parentNode
+* parseInt()
+* JSON.stringify()
+* JSON.parse()
