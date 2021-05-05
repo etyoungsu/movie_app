@@ -11,5 +11,29 @@ react course of Nomadcode
   * map reacp
 * Protection with PropTypes
   * Finds what is wrong about types
-* Class Components and State
-* Component Life Cycle
+* State
+  * Class Components and State
+  * Component Life Cycle
+* Fetching Movies from Api
+* Deploying to Github Pages
+* Routing
+  * Building Router
+  * Building Navigation
+  * Redirecting
+  
+**Done!**
+
+[URL](https://etyoungsu.github.io/movie_app/)
+
+
+### Hard Grammer
+
+
+* .forEach()
+* .filter()
+ * compare to **.map()**
+* event.target
+* .parentNode
+* parseInt()
+* JSON.stringify()
+* JSON.parse()
